@@ -2,6 +2,7 @@ import ResCard from "./ResCard";
 import { useState , useEffect} from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 const Body = () => {
 
   const [RestList, SetRestList] = useState([]);
@@ -27,6 +28,10 @@ const Body = () => {
  //   return <Shimmer/>
   // }
 //conditional rendering using ternary operator 
+
+const onlineStatus = useOnlineStatus();
+
+if (onlineStatus === false) return (<h1>You are offline </h1>);
 
     return RestList == 0 ?( <Shimmer/> ) :(
         <div className="body">
