@@ -5,7 +5,6 @@ const ItemList = ({items}) => {
     <div>
             {items.map(item =>
              <div key={item.card.info.id}>
-
             </div> )}
     </div>
   )
