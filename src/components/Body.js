@@ -57,7 +57,7 @@ if (onlineStatus === false) return (<h1>You are offline </h1>);
                 >Search</button>
               </div>
               <button className="ml-4 bg-slate-500 px-4 rounded-xl" onClick={()=>{
-                const filteredResList = RestList.filter(
+                const filteredList = RestList.filter(
                   (res) => res.info.avgRating > 4
                 );
                 SetRestList(filteredList);

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Shimmer from './Shimmer';
 import { useParams } from 'react-router-dom';
 import useResMenu from '../utils/useResMenu';
@@ -8,6 +8,8 @@ const ResMenu = () => {
     const {resId} = useParams();
 
 const resMenu = useResMenu(resId);
+
+const [showIndex, setShowIndex] = useState(null);
 
    if (resMenu === null) return <Shimmer/>;
 
@@ -25,8 +27,12 @@ console.log(categories)
         <h1 className='text-bold my-6 text-2xl'>{name}</h1>
         <h2 className='text-bold text-lg'>{cuisines.join(" , ")} -  {costForTwoMessage}</h2>
         {/*acordions */}
-        {categories.map((category)=>(
-          <ResCategory data={category?.card?.card}/>
+        {categories.map((category,index)=>(
+          <ResCategory key={category?.card?.card?.title} 
+          data={category?.card?.card} 
+          showItems={index == showIndex ? true : false}
+          setShowIndex={()=>setShowIndex(index)}
+          />
         ))}
     </div>
   );

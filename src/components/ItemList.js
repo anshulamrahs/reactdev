@@ -5,7 +5,7 @@ import {CDN_URL} from '../utils/constants'
 const ItemList = ({items}) => {
   console.log(items)
   return (
-    <div className='w-6/12 mx-auto my-6'>
+    <div>
          {items.map(item =>
              <div key={item.card.info.id} 
              className="p-2 m-2 border-gray-200 border-b-2 text-left flex justify-between">
@@ -17,6 +17,9 @@ const ItemList = ({items}) => {
               <p className='text-xs'>{item.card.info.description}</p>
               </div>
               <div className='w-3/12 p-4'>
+                <div className='absolute'>
+                <button className='p-2 bg-black shadow-lg mx-11 my-20 rounded-lg m-auto text-white'>Add +</button>
+                </div>
                 <img src={CDN_URL + item.card.info.imageId} className='w-full' />
                 </div>
             </div> 
